@@ -1,0 +1,15 @@
+kind: pipeline
+type: docker
+
+name: cypress
+
+steps:
+  - name: install-dependencies
+    image: node:20.2.0
+    commands:
+      - npm install
+
+  - name: run-tests
+    image: cypress/included:8.4.1
+    commands:
+      - npm run test:cypress
